@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cassert>
 #include <chrono>
+#include <algorithm>
 
 #include "inputfile.hpp"
 #include "stringoperations.hpp"
