@@ -51,7 +51,7 @@ int main(void)
     InputFile inputFile("InputFiles/day06.txt");
     std::vector<std::string> input = inputFile.getContentAsString("\n");
     auto t_begin = std::chrono::high_resolution_clock::now();
-    std::cout << "Day 5, puzzle 1: " << std::flush << part1(input[0]) << std::endl;
+    std::cout << "Day 6, puzzle 1: " << std::flush << part1(input[0]) << std::endl;
     auto t_end = std::chrono::high_resolution_clock::now();
     std::cout << "Completed in: " << std::chrono::duration<double, std::milli>(t_end - t_begin).count() << " ms" << std::endl;
 
@@ -62,7 +62,7 @@ int main(void)
     assert(part2(testInput4) == 29);
     assert(part2(testInput5) == 26);
     t_begin = std::chrono::high_resolution_clock::now();
-    std::cout << "Day 5, puzzle 2: " << std::flush << part2(input[0]) << std::endl;
+    std::cout << "Day 6, puzzle 2: " << std::flush << part2(input[0]) << std::endl;
     t_end = std::chrono::high_resolution_clock::now();
     std::cout << "Completed in: " << std::chrono::duration<double, std::milli>(t_end - t_begin).count() << " ms" << std::endl;
 }
