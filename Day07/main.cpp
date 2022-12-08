@@ -132,9 +132,7 @@ int part2(std::vector<std::string> input)
             i--;
         }
     }
-
-    //todo: er zijn meerdere dirs met dezelfde naam op een andere plek in de tree, gebruik het volledige pad...
-
+    
     std::map<std::string, int> dirsWithSize;
     while (dirsWithSize.size() < dirsWithContents.size())
     {
