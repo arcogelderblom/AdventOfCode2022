@@ -9,7 +9,7 @@
 #include "inputfile.hpp"
 #include "stringoperations.hpp"
 
-bool isViewUnblocked(std::vector<std::vector<int>> forest, int x, int y)
+bool isViewUnblocked(const std::vector<std::vector<int>> & forest, int x, int y)
 {
     // top
     bool visibleTop = true;
@@ -103,7 +103,7 @@ int part1(std::vector<std::string> input)
     return amountTreesVisible;
 }
 
-int getScenicScore(std::vector<std::vector<int>> forest, int x, int y)
+int getScenicScore(const std::vector<std::vector<int>> & forest, int x, int y)
 {
     // top
     int visibleTop = 0;
