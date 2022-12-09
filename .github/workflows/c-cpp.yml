@@ -9,9 +9,19 @@ on:
 jobs:
   build_run:
 
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
     - uses: actions/checkout@v3
     - name: build & run
-      run: ./build_and_run_all_days.sh
+      run: |
+        cmake -H. -B_build -DCMAKE_BUILD_TYPE=Release
+        cmake --build _build --config Release
+        for files in "_build/Day*/Day*"
+        do
+          for file in $files
+          do
+            echo $file
+            ./$file
+          done
+        done
