@@ -37,14 +37,14 @@ int part1(std::vector<std::string> input)
         }
         else if (input[i].find("$ ls") == 0)
         {
-            while (input[++i].find("$") != 0 && i < input.size())
+            while (i < input.size() && input[++i].find("$") != 0)
             {
                 dirsWithContents[curDir].push_back(input[i]);
             }
             i--;
         }
     }
-    
+
     std::map<std::string, int> dirsWithSize;
     while (dirsWithSize.size() < dirsWithContents.size())
     {
@@ -123,7 +123,7 @@ int part2(std::vector<std::string> input)
         }
         else if (input[i].find("$ ls") == 0)
         {
-            while (input[++i].find("$") != 0 && i < input.size())
+            while (i < input.size() && input[++i].find("$") != 0)
             {
                 dirsWithContents[curDir].push_back(input[i]);
             }
