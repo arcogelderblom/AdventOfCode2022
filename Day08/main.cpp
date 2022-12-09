@@ -165,7 +165,7 @@ int part2(std::vector<std::string> input)
         forest.push_back(columnTrees);
     }
 
-    int highestScenicScore;
+    int highestScenicScore = 0;
     for (int x = 1; x < forest.size() - 1; x++)
     {
         for (int y = 1; y < forest[x].size() - 1; y++)
