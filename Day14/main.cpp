@@ -98,6 +98,12 @@ int part1(std::vector<std::string> input)
         int sandColumn = 500;
         while (falling)
         {
+            sandRow++;
+            if (sandRow >= scan.size())
+            {
+                // current keeps falling so value we want is 1 before
+                return currentSandUnit - 1;
+            }
             if (scan[sandRow+1][sandColumn] == '#' || scan[sandRow+1][sandColumn] == 'o')
             {
                 if (scan[sandRow+1][sandColumn-1] == '.')
@@ -114,13 +120,6 @@ int part1(std::vector<std::string> input)
                     scan[sandRow][sandColumn] = 'o';
                 }
             }
-            
-            sandRow++;
-            if (sandRow >= scan.size())
-            {
-                // current keeps falling so value we want is 1 before
-                return currentSandUnit - 1;
-            }
         }
     }
 
@@ -131,13 +130,11 @@ long long part2(const std::vector<std::string> & input)
 {
     std::vector<std::string> scan = create2DPlane(input);
     std::string floor(1000, '#');
-    std::cout << getHighestY(input) + 2 << std::endl;
     scan[getHighestY(input) + 2] = floor;
 
     int currentSandUnit = 0;
     while (scan[0][500] != 'o')
     {
-        std::cout << currentSandUnit << std::endl;
         currentSandUnit++;
         bool falling = true;
         int sandRow = 0;
@@ -163,7 +160,7 @@ long long part2(const std::vector<std::string> & input)
             sandRow++;
         }
     }
-    std::cout << currentSandUnit << std::endl;
+    
     return currentSandUnit;
 }
 
