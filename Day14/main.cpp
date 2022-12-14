@@ -99,7 +99,7 @@ int part1(std::vector<std::string> input)
         while (falling)
         {
             sandRow++;
-            if (sandRow >= scan.size())
+            if (sandRow == scan.size() - 1)
             {
                 // current keeps falling so value we want is 1 before
                 return currentSandUnit - 1;
