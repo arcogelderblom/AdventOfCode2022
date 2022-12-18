@@ -51,6 +51,73 @@ std::vector<Coordinate> getNewShape(Coordinate start, std::string currentShape, 
     return shape;
 }
 
+void processMoving(std::vector<Coordinate> & actualShape, const char & instruction, const std::vector<std::string> & chamber)
+{
+    // calculate bounds
+    int minX = std::numeric_limits<int>::max();
+    int maxX = 0;
+
+    for (const Coordinate & c : actualShape)
+    {
+        if (c.first < minX)
+        {
+            minX = c.first;
+        }
+        if (c.first > maxX)
+        {
+            maxX = c.first;
+        }
+    }
+
+    // proces the moving
+    if (instruction == '>')
+    {
+        bool collisionRight = false;
+        if (maxX < 6)
+        {
+            for (const Coordinate & c : actualShape)
+            {
+                Coordinate coordinateToCheck = c;
+                coordinateToCheck.first += 1;
+                if (chamber[coordinateToCheck.second][coordinateToCheck.first] == '#')
+                {
+                    collisionRight = true;
+                }
+            }
+        }
+        if (maxX < 6 && !collisionRight)
+        {
+            for (Coordinate & c : actualShape)
+            {
+                c.first += 1;
+            }
+        }
+    }
+    else if (instruction == '<')
+    {
+        bool collisionLeft = false;
+        if (minX > 0)
+        {
+            for (const Coordinate & c : actualShape)
+            {
+                Coordinate coordinateToCheck = c;
+                coordinateToCheck.first -= 1;
+                if (chamber[coordinateToCheck.second][coordinateToCheck.first] == '#')
+                {
+                    collisionLeft = true;
+                }
+            }
+        }
+        if (minX > 0 && !collisionLeft)
+        {
+            for (Coordinate & c : actualShape)
+            {
+                c.first -= 1;
+            }
+        }
+    }
+}
+
 int part1(const std::string & input) 
 {
     std::vector<std::string> shapes = {"-", "+", "_|", "|", "[]"};
@@ -96,48 +163,8 @@ int part1(const std::string & input)
                 }
             }
 
-            // proces the moving
-            if (*iterInput == '>')
-            {
-                bool collisionRight = false;
-                for (const Coordinate & c : actualShape)
-                {
-                    Coordinate coordinateToCheck = c;
-                    coordinateToCheck.first += 1;
-                    if (chamber[coordinateToCheck.second][coordinateToCheck.first] == '#')
-                    {
-                        collisionRight = true;
-                    }
-                }
-                if (maxX < 6 && !collisionRight)
-                {
-                    for (Coordinate & c : actualShape)
-                    {
-                        c.first += 1;
-                    }
-                }
-            }
-            else if (*iterInput == '<')
-            {
-                bool collisionLeft = false;
-                for (const Coordinate & c : actualShape)
-                {
-                    Coordinate coordinateToCheck = c;
-                    coordinateToCheck.first -= 1;
-                    if (chamber[coordinateToCheck.second][coordinateToCheck.first] == '#')
-                    {
-                        collisionLeft = true;
-                    }
-                }
-                if (minX > 0 && !collisionLeft)
-                {
-                    for (Coordinate & c : actualShape)
-                    {
-                        c.first -= 1;
-                    }
-                }
-            }
-            
+            processMoving(actualShape, *iterInput, chamber);
+
             // check collisions
             for (const Coordinate & c : actualShape)
             {
@@ -243,64 +270,7 @@ unsigned long long part2(const std::string & input)
         bool falling = true;
         while (falling)
         {
-            // calculate bounds
-            int minX = std::numeric_limits<int>::max();
-            int maxX = 0;
-
-            for (const Coordinate & c : actualShape)
-            {
-                if (c.first < minX)
-                {
-                    minX = c.first;
-                }
-                if (c.first > maxX)
-                {
-                    maxX = c.first;
-                }
-            }
-
-            // proces the moving
-            if (*iterInput == '>')
-            {
-                bool collisionRight = false;
-                for (const Coordinate & c : actualShape)
-                {
-                    Coordinate coordinateToCheck = c;
-                    coordinateToCheck.first += 1;
-                    if (chamber[coordinateToCheck.second][coordinateToCheck.first] == '#')
-                    {
-                        collisionRight = true;
-                    }
-                }
-                if (maxX < 6 && !collisionRight)
-                {
-                    for (Coordinate & c : actualShape)
-                    {
-                        c.first += 1;
-                    }
-                }
-            }
-            else if (*iterInput == '<')
-            {
-                bool collisionLeft = false;
-                for (const Coordinate & c : actualShape)
-                {
-                    Coordinate coordinateToCheck = c;
-                    coordinateToCheck.first -= 1;
-                    if (chamber[coordinateToCheck.second][coordinateToCheck.first] == '#')
-                    {
-                        collisionLeft = true;
-                    }
-                }
-                if (minX > 0 && !collisionLeft)
-                {
-                    for (Coordinate & c : actualShape)
-                    {
-                        c.first -= 1;
-                    }
-                }
-            }
-            
+            processMoving(actualShape, *iterInput, chamber);
             // check collisions
             for (const Coordinate & c : actualShape)
             {
