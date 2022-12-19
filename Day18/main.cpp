@@ -2,6 +2,7 @@
 #include <cassert>
 #include <chrono>
 
+#include <algorithm>
 #include <tuple>
 
 #include "inputfile.hpp"
