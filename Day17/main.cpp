@@ -118,6 +118,21 @@ void processMoving(std::vector<Coordinate> & actualShape, const char & instructi
     }
 }
 
+bool checkCollisions(std::vector<Coordinate> & actualShape, const std::vector<std::string> & chamber)
+{
+    // check collisions
+    for (const Coordinate & c : actualShape)
+    {
+        Coordinate coordinateToCheck = c;
+        coordinateToCheck.second -= 1;
+        if (chamber[coordinateToCheck.second][coordinateToCheck.first] == '#' || coordinateToCheck.second < 0)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 int part1(const std::string & input) 
 {
     std::vector<std::string> shapes = {"-", "+", "_|", "|", "[]"};
@@ -147,35 +162,9 @@ int part1(const std::string & input)
         bool falling = true;
         while (falling)
         {
-            // calculate bounds
-            int minX = std::numeric_limits<int>::max();
-            int maxX = 0;
-
-            for (const Coordinate & c : actualShape)
-            {
-                if (c.first < minX)
-                {
-                    minX = c.first;
-                }
-                if (c.first > maxX)
-                {
-                    maxX = c.first;
-                }
-            }
-
             processMoving(actualShape, *iterInput, chamber);
-
-            // check collisions
-            for (const Coordinate & c : actualShape)
-            {
-                Coordinate coordinateToCheck = c;
-                coordinateToCheck.second -= 1;
-                if (chamber[coordinateToCheck.second][coordinateToCheck.first] == '#' || coordinateToCheck.second < 0)
-                {
-                    falling = false;
-                }
-            }
-
+            falling = !checkCollisions(actualShape, chamber);
+            
             // fall
             if (falling)
             {
@@ -271,16 +260,7 @@ unsigned long long part2(const std::string & input)
         while (falling)
         {
             processMoving(actualShape, *iterInput, chamber);
-            // check collisions
-            for (const Coordinate & c : actualShape)
-            {
-                Coordinate coordinateToCheck = c;
-                coordinateToCheck.second -= 1;
-                if (chamber[coordinateToCheck.second][coordinateToCheck.first] == '#' || coordinateToCheck.second < 0)
-                {
-                    falling = false;
-                }
-            }
+            falling = !checkCollisions(actualShape, chamber); // if no collision then keep on falling
 
             // fall
             if (falling)
