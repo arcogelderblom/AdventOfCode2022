@@ -2,6 +2,8 @@
 #include <cassert>
 #include <chrono>
 
+#include <tuple>
+
 #include "inputfile.hpp"
 #include "stringoperations.hpp"
 
