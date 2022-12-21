@@ -13,10 +13,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: build & run ubuntu
+    - name: generate
+      run: cmake -H. -B_build -DCMAKE_BUILD_TYPE=Release
+    - name: build
+      run: cmake --build _build --config Release
+    - name: run
       run: |
-        cmake -H. -B_build -DCMAKE_BUILD_TYPE=Release
-        cmake --build _build --config Release
         for files in "_build/Day*/Day*"
         do
           for file in $files
