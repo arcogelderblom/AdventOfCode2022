@@ -7,26 +7,16 @@ on:
     branches: [ "master" ]
 
 jobs:
-  generate:
+  build_and_run:
     runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: build & run
+    - name: generate
       run: cmake -H. -B_build -DCMAKE_BUILD_TYPE=Release
-  build:
-    runs-on: macos-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: build & run
+    - name: build
       run: cmake --build _build --config Release
-  run:
-    runs-on: macos-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: build & run
+    - name: run
       run: |
         for files in "_build/Day*/Day*"
         do
