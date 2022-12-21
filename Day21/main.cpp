@@ -50,7 +50,7 @@ double getResult(Monkey monkey, std::map<std::string, Monkey> & monkeys, const d
     {
         return getResult(monkeys[monkey.lhs], monkeys, humanShouts) == getResult(monkeys[monkey.rhs], monkeys, humanShouts);
     }
-    assert(false); // should never come here
+    throw std::runtime_error("Reached the end of get result function without returning result, this is wrong");
 }
 
 std::map<std::string, Monkey> parseInput(const std::vector<std::string> & input)
