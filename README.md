@@ -1,6 +1,7 @@
 # :christmas_tree: Advent Of Code 2022 :christmas_tree:
 
-[![C/C++ CI](https://github.com/arcogelderblom/AdventOfCode2022/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/arcogelderblom/AdventOfCode2022/actions/workflows/c-cpp.yml)
+[![C/C++ CI macOS](https://github.com/arcogelderblom/AdventOfCode2022/actions/workflows/c-cpp-macos.yml/badge.svg)](https://github.com/arcogelderblom/AdventOfCode2022/actions/workflows/c-cpp-macos.yml)
+[![C/C++ CI Ubuntu](https://github.com/arcogelderblom/AdventOfCode2022/actions/workflows/c-cpp-ubuntu.yml/badge.svg)](https://github.com/arcogelderblom/AdventOfCode2022/actions/workflows/c-cpp-ubuntu.yml)
 
 My entry for Advent Of Code 2022
 
