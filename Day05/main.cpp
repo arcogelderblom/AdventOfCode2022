@@ -89,7 +89,7 @@ int main(void)
     std::vector<std::string> testInput {"    [D]\n[N] [C]\n[Z] [M] [P]\n 1   2   3 ","move 1 from 2 to 1\nmove 3 from 1 to 3\nmove 2 from 2 to 1\nmove 1 from 1 to 2"};
     assert(part1(testInput) == "CMZ");
 
-    InputFile inputFile("InputFiles/day05.txt");
+    InputFile inputFile("AdventOfCodeInputFiles/2022/day05.txt");
     std::vector<std::string> input = inputFile.getContentAsString("\n\n");
     auto t_begin = std::chrono::high_resolution_clock::now();
     std::cout << "Day 5, puzzle 1: " << std::flush << part1(input) << std::endl;

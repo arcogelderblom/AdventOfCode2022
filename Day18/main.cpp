@@ -96,7 +96,7 @@ int main(void)
     std::vector<std::string> testInput = {"2,2,2", "1,2,2", "3,2,2", "2,1,2", "2,3,2", "2,2,1", "2,2,3", "2,2,4", "2,2,6", "1,2,5", "3,2,5", "2,1,5", "2,3,5"};
     assert(part1(testInput) == 64);
 
-    InputFile inputFile("InputFiles/day18.txt");
+    InputFile inputFile("AdventOfCodeInputFiles/2022/day18.txt");
     std::vector<std::string> input = inputFile.getContentAsString("\n");
     auto t_begin = std::chrono::high_resolution_clock::now();
     std::cout << "Day 18, puzzle 1: " << std::flush << part1(input) << std::endl;

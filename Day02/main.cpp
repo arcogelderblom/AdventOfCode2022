@@ -118,7 +118,7 @@ int main(void)
     std::vector<std::string> testInput {"A Y", "B X", "C Z"};
     assert(part1(testInput) == 15);
 
-    InputFile inputFile("InputFiles/day02.txt");
+    InputFile inputFile("AdventOfCodeInputFiles/2022/day02.txt");
     std::vector<std::string> input = inputFile.getContentAsString("\n");
     auto t_begin = std::chrono::high_resolution_clock::now();
     std::cout << "Day 2, puzzle 1: " << std::flush << part1(input) << std::endl;

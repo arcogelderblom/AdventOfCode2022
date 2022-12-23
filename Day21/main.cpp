@@ -132,7 +132,7 @@ int main(void)
     std::vector<std::string> testInput = {"root: pppw + sjmn", "dbpl: 5", "cczh: sllz + lgvd", "zczc: 2", "ptdq: humn - dvpt", "dvpt: 3", "lfqf: 4", "humn: 5", "ljgn: 2", "sjmn: drzm * dbpl", "sllz: 4", "pppw: cczh / lfqf", "lgvd: ljgn * ptdq", "drzm: hmdt - zczc", "hmdt: 32"};
     assert(part1(testInput) == 152);
 
-    InputFile inputFile("InputFiles/day21.txt");
+    InputFile inputFile("AdventOfCodeInputFiles/2022/day21.txt");
     std::vector<std::string> input = inputFile.getContentAsString("\n");
     auto t_begin = std::chrono::high_resolution_clock::now();
     std::cout << "Day 21, puzzle 1: " << std::flush << std::setprecision(std::numeric_limits<double>::max_digits10) << part1(input) << std::endl;

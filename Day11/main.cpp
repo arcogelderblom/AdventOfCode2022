@@ -168,7 +168,7 @@ int main(void)
                                           "Monkey 3:\n  Starting items: 74\n  Operation: new = old + 3\n  Test: divisible by 17\n    If true: throw to monkey 0\n    If false: throw to monkey 1\n"};
     assert(part1(testInput) == 10605);
 
-    InputFile inputFile("InputFiles/day11.txt");
+    InputFile inputFile("AdventOfCodeInputFiles/2022/day11.txt");
     std::vector<std::string> input = inputFile.getContentAsString("\n\n");
     auto t_begin = std::chrono::high_resolution_clock::now();
     std::cout << "Day 11, puzzle 1: " << std::flush << part1(input) << std::endl;

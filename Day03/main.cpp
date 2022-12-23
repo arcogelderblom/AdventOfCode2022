@@ -54,7 +54,7 @@ int main(void)
     std::vector<std::string> testInput {"vJrwpWtwJgWrhcsFMMfFFhFp", "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL", "PmmdzqPrVvPwwTWBwg", "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn", "ttgJtRGJQctTZtZT", "CrZsJsPPZsGzwwsLwLmpwMDw"};
     assert(part1(testInput) == 157);
 
-    InputFile inputFile("InputFiles/day03.txt");
+    InputFile inputFile("AdventOfCodeInputFiles/2022/day03.txt");
     std::vector<std::string> input = inputFile.getContentAsString("\n");
     auto t_begin = std::chrono::high_resolution_clock::now();
     std::cout << "Day 3, puzzle 1: " << std::flush << part1(input) << std::endl;

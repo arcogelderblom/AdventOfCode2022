@@ -1,0 +1,4 @@
+[submodule "InputFiles"]
+	path = AdventOfCodeInputFiles
+	url = https://github.com/arcogelderblom/AdventOfCodeInputFiles.git
+	branch = master

@@ -64,7 +64,7 @@ int main(void)
     std::vector<std::string> testInput {"1000\n2000\n3000", "4000", "5000\n6000", "7000\n8000\n9000", "10000"};
     assert(part1(testInput) == 24000);
 
-    InputFile inputFile("InputFiles/day01.txt");
+    InputFile inputFile("AdventOfCodeInputFiles/2022/day01.txt");
     std::vector<std::string> input = inputFile.getContentAsString("\n\n");
     auto t_begin = std::chrono::high_resolution_clock::now();
     std::cout << "Day 1, puzzle 1: " << std::flush << part1(input) << std::endl;
