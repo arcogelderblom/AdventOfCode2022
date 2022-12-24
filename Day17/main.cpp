@@ -12,7 +12,7 @@
 
 typedef std::pair<int, int> Coordinate;
 
-std::vector<Coordinate> getNewShape(Coordinate start, std::string currentShape, std::vector<std::string> shapeStr)
+std::vector<Coordinate> getNewShape(Coordinate start, std::string currentShape, const std::vector<std::string> & shapeStr)
 {
     std::vector<std::set<Coordinate>> shapes = {{{0,0}, {1,0}, {2,0}, {3,0}},
                                                 {{1,0}, {0,-1}, {1,-1}, {2,-1}, {1,-2}},
@@ -128,7 +128,7 @@ bool checkCollisions(std::vector<Coordinate> & actualShape, const std::vector<st
     {
         Coordinate coordinateToCheck = c;
         coordinateToCheck.second -= 1;
-        if (chamber[coordinateToCheck.second][coordinateToCheck.first] == '#' || coordinateToCheck.second < 0)
+        if (coordinateToCheck.second < 0 || chamber[coordinateToCheck.second][coordinateToCheck.first] == '#')
         {
             return true;
         }
