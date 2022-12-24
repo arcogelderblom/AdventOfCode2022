@@ -41,12 +41,15 @@ std::vector<Coordinate> getNewShape(Coordinate start, std::string currentShape, 
         start.second += 1;
     }
 
-    for (const Coordinate c : shapes[std::distance(shapeStr.begin(), std::find(shapeStr.begin(), shapeStr.end(), currentShape))])
+    if (std::distance(shapeStr.begin(), std::find(shapeStr.begin(), shapeStr.end(), currentShape)) < shapes.size())
     {
-        Coordinate current = start;
-        current.first += c.first;
-        current.second += c.second;
-        shape.push_back(current);
+        for (const Coordinate c : shapes[std::distance(shapeStr.begin(), std::find(shapeStr.begin(), shapeStr.end(), currentShape))])
+        {
+            Coordinate current = start;
+            current.first += c.first;
+            current.second += c.second;
+            shape.push_back(current);
+        }
     }
     return shape;
 }

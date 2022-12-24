@@ -6,6 +6,7 @@
 #include <utility>
 #include <list>
 #include <limits>
+#include <algorithm>
 
 #include "inputfile.hpp"
 #include "stringoperations.hpp"
