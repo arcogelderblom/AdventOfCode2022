@@ -6,6 +6,7 @@
 #include <map>
 #include <list>
 #include <utility>
+#include <algorithm>
 
 #include "inputfile.hpp"
 #include "stringoperations.hpp"
