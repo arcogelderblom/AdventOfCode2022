@@ -100,7 +100,6 @@ std::string part1(const std::vector<std::string> & input)
     for (const std::string & SNAFUnum : input)
     {
         result += getDecimal(SNAFUnum);
-        std::cout << result << std::endl;
     }
     return getSNAFU(result);
 }
@@ -135,11 +134,5 @@ int main(void)
     auto t_begin = std::chrono::high_resolution_clock::now();
     std::cout << "Day 25, puzzle 1: " << std::flush << part1(input) << std::endl;
     auto t_end = std::chrono::high_resolution_clock::now();
-    std::cout << "Completed in: " << std::chrono::duration<double, std::milli>(t_end - t_begin).count() << " ms" << std::endl;
-
-    assert(part2(testInput) == 20);
-    t_begin = std::chrono::high_resolution_clock::now();
-    std::cout << "Day 25, puzzle 2: " << std::flush << part2(input) << std::endl;
-    t_end = std::chrono::high_resolution_clock::now();
     std::cout << "Completed in: " << std::chrono::duration<double, std::milli>(t_end - t_begin).count() << " ms" << std::endl;
 }
